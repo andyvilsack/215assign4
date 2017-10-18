@@ -5,22 +5,22 @@ var play2Pos = 0;
 function rollDice()
 {
 	randomNumber = Math.floor(Math.random() * (7 - 1)) + 1;
-	console.log(randomNumber);
 	movePlayer(randomNumber);
 }
 function movePlayer(num)
 {
 	if(currentPlayer == 1)
 	{
-		if(boardArray[play2Pos] ==  (play1Pos += num))
+		var test = play1Pos + num;
+		if(boardArray[play2Pos] ==  test)
 		{
 			alert("Player 2 is there already! lose a turn")
 		}
 		else
 		{
-		play1Pos += num;
-		boardArray[play1Pos] = 1;
-		document.getElementById("cell"+play1Pos).src = "post-images/player1Image1.jpg";
+			play1Pos = play1Pos+num;
+			boardArray[play1Pos] = 1;
+			document.getElementById("cell"+play1Pos).src = "post-images/player1Image1.jpg";
 		}
 	}
 	else
@@ -31,12 +31,9 @@ function movePlayer(num)
 		}
 		else
 		{
-		play2Pos += num;
-		boardArray[play2Pos] = 2;
-		document.getElementById("cell"+play2Pos).src = "post-images/player2Image1.jpg";
+			play2Pos += num;
+			boardArray[play2Pos] = 2;
+			document.getElementById("cell"+play2Pos).src = "post-images/player2Image1.jpg";
 		}
 	}
-	
-	
-	
 }
