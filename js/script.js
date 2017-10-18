@@ -21,11 +21,13 @@ function movePlayer(num)
 			play1Pos = play1Pos+num;
 			boardArray[play1Pos] = 1;
 			document.getElementById("cell"+play1Pos).src = "post-images/player1Image1.jpg";
+			currentPlayer = 2;
 		}
 	}
 	else
 	{
-		if(boardArray[play1Pos] ==  (play2Pos += num))
+		var test2 = play2Pos + num;
+		if(boardArray[play1Pos] ==  test2)
 		{
 			alert("Player 1 is there already! lose a turn")
 		}
@@ -34,6 +36,7 @@ function movePlayer(num)
 			play2Pos += num;
 			boardArray[play2Pos] = 2;
 			document.getElementById("cell"+play2Pos).src = "post-images/player2Image1.jpg";
+			currentPlayer = 1;
 		}
 	}
 }
