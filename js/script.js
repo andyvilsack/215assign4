@@ -14,39 +14,55 @@ var storeImage1 = "";
 var storeImage2 = "";
 var firstMove1 = 0;
 var firstMove2 = 0;
+var checkWinVal = 0;
 
+//init chutes and ladders
 var cell1 = 22;
 var cell4 = 13;
 var cell8 = 28;
 var cell24 = 7;
 var cell25 = 70;
+var cell32 = 3;
+var cell35 = 39;
+var cell36 = 17;
+var cell46 = 65;
+var cell55 = 37;
+var cell56 = 72;
+var cell75 = 38;
+var cell77 = 49;
+var cell80 = 30;
 
 
 function main(){
-	var randomNumber = rollDice();
-	movePlayer(randomNumber);
-
+	if(checkWinVal == 0){
+		var randomNumber = rollDice();
+		movePlayer(randomNumber);
+		checkWinVal = checkWin();
+	}
 }
 
 function rollDice() {
 	randomNumber = Math.floor(Math.random() * (7 - 1)) + 1;
-   	console.log(randomNumber);
    	return randomNumber;
 }
 
 function movePlayer(num) {
 	if(currentPlayer == 1) {
+		console.log("Player 1 rolled: " + num);
 		var pos1 = play1Pos + num;
 
-        //check if cell is occupied by player 2, don't check at start of game
-		if(play2Pos == pos1 && play2Pos != 0) {
+		//check if new cell is outside of winning range
+		if(pos1 > 81){
+			alert("You can't go past the final cell, you lose a turn!");
+		}
+		else if(play2Pos == pos1 && play2Pos != 0) {
 			alert("Player 2 is there already! You lose a turn");
 		}
 		else { 
         
    			play1Pos += num;
             tempPosition = checkForChuteOrLadder(play1Pos);
-            if(tempPosition != null && tempPosition != boardArray[play2Pos])
+            if(tempPosition != null && tempPosition != play2Pos)
                 play1Pos = tempPosition;
 
             //replace previous cell with old image
@@ -68,15 +84,20 @@ function movePlayer(num) {
  
 	}
 	else {
+		console.log("Player 2 rolled: " + num);
 		var pos2 = play2Pos + num;
         
-		if(play1Pos == pos2 && play1Pos != 0) {
+        //check if new cell is outside of winning range
+		if(pos2 > 81){
+			alert("You can't go past the final cell, you lose a turn!");
+		}
+		else if(play1Pos == pos2 && play1Pos != 0) {
 			alert("Player 1 is there already! You lose a turn");
 		}
 		else {
 			play2Pos += num;
 			tempPosition = checkForChuteOrLadder(play2Pos);
-            if(tempPosition != null && tempPosition != boardArray[play1Pos])
+            if(tempPosition != null && tempPosition != play1Pos)
                 play2Pos = tempPosition;
             
 			boardArray[play2Pos] = 2;
@@ -116,14 +137,51 @@ function getCurrentImagePlayer2() {
 
 function checkForChuteOrLadder(position) {
    
-    if(position == 1){
-        return cell1;
-    }
-    else if(position == 4){
-        return cell4;
-    }
-    else{
-        return null;
-    }
+	switch(position){
+		case 1: return cell1;
+		case 4: return cell4;
+		case 8: return cell8;
+		case 24: return cell24;
+		case 25: return cell25;
+		case 32: return cell32;
+		case 35: return cell35;
+		case 36: return cell36;
+		case 46: return cell46;
+		case 55: return cell55;
+		case 56: return cell56;
+		case 75: return cell75;
+		case 77: return cell77;
+		case 80: return cell80;
+	}
+
+	return null;
 }
+
+function checkWin(){
+	if(play1Pos == 81){
+		alert("Player 1 wins!");
+		return 1;
+	}
+	if(play2Pos == 81){
+		alert("Player 2 wins!");
+		return 1;
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
