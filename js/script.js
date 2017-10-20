@@ -32,19 +32,16 @@ var cell80 = 30;
 
 
 function main(){
-	if(currentPlayer == 1)
-	{
-		document.getElementById("PlayerImage").src = "post-images/player1Image2.jpg";
-		document.getElementById("PlayerImage2").src = "post-images/player1Image1.jpg";
-
-	}
-	else if(currentPlayer == 2)
-	{
-		document.getElementById("PlayerImage").src = "post-images/player1Image1.jpg";
-		document.getElementById("PlayerImage2").src = "post-images/player1Image2.jpg";
-	}
 	if(checkWinVal == 0){
-		
+		if(currentPlayer == 1){
+			document.getElementById("PlayerImage").src = "post-images/player1Image2.jpg";
+			document.getElementById("PlayerImage2").src = "post-images/player1Image1.jpg";
+		}
+		else if(currentPlayer == 2){
+			document.getElementById("PlayerImage").src = "post-images/player1Image1.jpg";
+			document.getElementById("PlayerImage2").src = "post-images/player1Image2.jpg";
+		}
+			
 		var randomNumber = rollDice();
 		document.getElementById("dice").src = "http://balance3e.com/Images/die" + randomNumber + ".gif";
 		movePlayer(randomNumber);
