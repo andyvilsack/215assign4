@@ -34,8 +34,21 @@ var cell80 = 30;
 
 
 function main(){
+	if(currentPlayer == 1)
+	{
+		document.getElementById("PlayerImage").src = "post-images/player1Image2.jpg";
+		document.getElementById("PlayerImage2").src = "post-images/player1Image1.jpg";
+
+	}
+	else if(currentPlayer == 2)
+	{
+		document.getElementById("PlayerImage").src = "post-images/player1Image1.jpg";
+		document.getElementById("PlayerImage2").src = "post-images/player1Image2.jpg";
+	}
 	if(checkWinVal == 0){
+		
 		var randomNumber = rollDice();
+		document.getElementById("dice").src = "http://balance3e.com/Images/die" + randomNumber + ".gif";
 		movePlayer(randomNumber);
 		checkWinVal = checkWin();
 	}
@@ -55,7 +68,8 @@ function movePlayer(num) {
 		if(pos1 > 81){
 			alert("You can't go past the final cell, you lose a turn!");
 		}
-		else if(play2Pos == pos1 && play2Pos != 0) {
+		else if(play2Pos == pos1 && play2Pos != 0) 
+		{
 			alert("Player 2 is there already! You lose a turn");
 		}
 		else { 
