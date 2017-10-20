@@ -1,4 +1,3 @@
-var boardArray = new Array(82);
 var currentPlayer = 1;
 var play1Pos = 0;
 var play2Pos = 0;
@@ -6,7 +5,6 @@ var prevPlay1Pos = 0;
 var prevPlay2Pos = 0;
 var player1Image = "post-images/player1Image1.jpg";
 var player2Image = "post-images/player1Image2.jpg";
-var player3Image = "post-images/player1Image3.jpg";
 var tempPosition = 0;
 var currentImage1 = 0;
 var currentImage2 = 0;
@@ -79,7 +77,6 @@ function movePlayer(num) {
 
 
 		}
-		boardArray[play1Pos] = 1; //set cell to be occupied by player 1
 		currentPlayer = 2; //set current player to 2, since player one has moved 
  
 	}
@@ -113,7 +110,6 @@ function movePlayer(num) {
 			document.getElementById("cell"+play2Pos).src = player2Image;
 			firstMove2 = 1; //first move has occurred
 		}
-		boardArray[play2Pos] = 2; //set cell to be occupied by player 1
 		currentPlayer = 1;
 
 	}
@@ -153,7 +149,6 @@ function checkForChuteOrLadder(position) {
 		case 77: return cell77;
 		case 80: return cell80;
 	}
-
 	return null;
 }
 
@@ -168,18 +163,6 @@ function checkWin(){
 	}
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
