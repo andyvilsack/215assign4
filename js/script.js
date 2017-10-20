@@ -97,8 +97,6 @@ function movePlayer(num) {
             if(tempPosition != null && tempPosition != play1Pos)
                 play2Pos = tempPosition;
             
-			boardArray[play2Pos] = 2;
-
             //replace previous cell with old image
 			if(firstMove2 != 0) 
 				document.getElementById('cell' + currentImage2).src = getCurrentImagePlayer2();
