@@ -7,3 +7,58 @@ img {
 .row {
 	width: 100%;
 }
+
+.boardDiv {
+	text-align: center;
+}
+
+.controlDiv {
+	text-align: center
+}
+
+.player {
+	width: 66px;
+}
+
+@media only screen and (min-width: 340px) {
+	img {
+   	width: 9%;
+   }
+}
+
+@media only screen and (min-width: 300px) {
+	img {
+   	width: 9%;
+   }
+
+}
+
+@media only screen and (min-width: 400px) {
+	img {
+   	width: 10%;
+   }
+
+}
+
+@media only screen and (min-width: 500px) { 
+	img {
+   	width: 10%;
+   }
+}
+@media only screen and (min-width: 600px) {
+   img {
+   	width: 10%;
+   }
+}
+
+
+@media only screen and (min-width: 850px) {
+
+}
+
+
+@media only screen and (min-width: 1295px) {
+    img {
+    	width: 66px
+    }
+}

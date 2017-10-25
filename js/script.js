@@ -164,11 +164,17 @@ function checkForChuteOrLadder(position) {
 function checkWin(){
 	if(play1Pos == 81){
 		alert("Player 1 wins!");
+		for(var i = 1; i <= 80; i++) {
+			document.getElementById('cell' + i).src = "post-images/player1Image1.jpg";
+		}
 		play();
 		return 1;
 	}
 	if(play2Pos == 81){
 		alert("Player 2 wins!");
+		for(var i = 1; i <= 80; i++) {
+			document.getElementById('cell' + i).src = "post-images/player1Image2.jpg";
+		}
 		play();
 		return 1;
 	}
